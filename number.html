@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Number</title>
+        <script>
+      
+        function display(){
+         var a=prompt("Please enter a number")   
+         if(a>0){
+           var a= document.getElementById('demo');
+           a.innerHTML="This is positive Number";
+           a.style.color="green";
+           
+          
+         }
+         else if(a<0) {
+            var a= document.getElementById('demo');
+           a.innerHTML="This is Negative Number";
+           a.style.color="red";
+      
+         }
+         else if(a==0) {
+            var a= document.getElementById('demo');
+           a.innerHTML="Zero";
+           a.style.color="red";
+          
+         }
+         else {
+            var a= document.getElementById('demo');
+           a.innerHTML="Please enter the correct number";
+           a.style.color="red";
+         }
+        }
+      </script>
+    </head>
+    <body>
+        <button onclick="display()">Click</button>
+        <p id="demo">Number</p>
+    </body>
+</html>

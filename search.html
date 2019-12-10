@@ -1,0 +1,18 @@
+<html>
+<body>
+
+<h1>Search for a String</h1>
+<button onclick="myFunction()">Search</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var str = "JavaScript is the programming language of HTML and the Web.JavaScript is easy to learn.This tutorial will teach you JavaScript from basic to advanced."; 
+  var res = str.match(/Java/g);
+  document.getElementById("demo").innerHTML = res;
+}
+</script>
+
+</body>
+</html>

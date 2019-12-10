@@ -1,0 +1,22 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+        const obj1={
+            property:42,
+            property1:35};
+            Object.seal(obj1);
+            obj1.property=35;
+            document.write(obj1.property)
+            delete obj1.property1;
+            document.write(obj1.property1)
+            const obj2={
+                prop:45
+            };
+            Object.freeze(obj2);
+            obj2.prop=55;
+            document.write(obj2.prop)
+            delete obj2.prop;
+            document.write(obj2.prop)</script>
+    </body>
+</html>

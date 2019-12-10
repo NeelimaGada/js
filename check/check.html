@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Radio/Check</title>
+        <script>
+                function myFunction() {
+                  var checkBox = document.getElementById("myCheck");
+                 
+                  if (checkBox.checked == true){
+                    document.getElementById("demo").innerHTML="User Checked"
+                  } else {
+                    document.getElementById("demo").innerHTML="User Unchecked" 
+                  }
+                }
+                </script>
+    </head>
+    <body>
+            <p>CHECKBOX</p>
+
+            Checkbox: <input type="checkbox" id="myCheck"  onclick="myFunction()">
+            
+            <p id="demo"></p>
+            
+    </body>
+</html>

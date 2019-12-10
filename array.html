@@ -1,0 +1,75 @@
+<html>
+<body>
+ 
+<h1>Creating a JavaScript Object.</h1>
+ 
+<p id="demo"></p>
+ 
+<script>
+ 
+       
+      var cars=[
+        {
+            id:1,
+        firstName: 'Neelima ',
+        lastName:"Gada"
+        },
+        {
+            id:2,
+            firstName: 'Suraj',
+            lastName:"sable"
+        },
+        {
+            id:3,
+            firstName: 'varsha',
+            lastName:"tangepalli"
+        }
+      ]
+   cars.forEach(function(a){
+      
+       document.write("ID:"+ a.id+"<br>"+"FirstName:"+a.firstName +"<br>" +"LastName:"+a.lastName+"<br><br><br>")
+   })
+ 
+  
+</script>
+ 
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+ 
+    </head>
+<body>
+ 
+<h2>javascript looping methods</h2>
+<p id="demo"></p>
+<script >
+    var person=[{
+    name:"abc",
+  
+    location:"hyderabad"
+},
+{
+    name:"xyz",
+   
+    location:"chennai"
+},
+{
+    name:"123",
+  
+    location:"mumbai"
+}
+]
+for(p in person){
+    document.getElementById("demo").innerHTML+=person[p].location+"<br>"+person[p].name+"<br>";
+ 
+}
+ 
+</script>
+ 
+</body>
+ 
+</html>

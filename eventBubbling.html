@@ -1,0 +1,24 @@
+<html>
+    <head></head>
+    <body>
+        <div onclick="myfunction(this)">HI
+        <h1 onclick="myfuction1(this)">Hello
+                <p onclick="myfunction2(this)">Hello World</p></h1>
+  </div>
+    <script>
+          function myfunction(e){
+            e.stopPropagation();
+              alert("HI");
+          }
+          function myfuction1(ea){
+            ea.stopPropagation();
+              alert("Hello")
+          }
+          function myfunction2() {
+          
+              alert ("Hello World")
+          }
+    </script>
+  
+    </body>
+</html>

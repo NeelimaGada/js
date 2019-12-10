@@ -1,0 +1,40 @@
+<html>
+<body>
+
+<p>Click the button to sort the array in ascending order.</p>
+
+<button onclick="myFunction()">Ascending</button>
+<button onclick="myFunction1()">Descending</button>
+<p id="demo"></p>
+
+<script>
+
+
+function myFunction() {
+  var Arr = [1, 7, 2, 8, 3, 4, 5, 0, 9];
+
+for (var i = 1; i < Arr.length; i++)
+    for (var j = 0; j < i; j++)
+        if (Arr[i] < Arr[j]) {
+          var x = Arr[i];
+          Arr[i] = Arr[j];
+          Arr[j] = x;
+        }
+  document.getElementById("demo").innerHTML = Arr;
+}
+function myFunction1() {
+  var Arr = [1, 7, 2, 8, 3, 4, 5, 0, 9];
+
+for (var i = 1; i < Arr.length; i++)
+    for (var j = 0; j < i; j++)
+        if (Arr[i] > Arr[j]) {
+          var x = Arr[i];
+          Arr[i] = Arr[j];
+          Arr[j] = x;
+        }
+  document.getElementById("demo").innerHTML = Arr;
+}
+</script>
+
+</body>
+</html>
