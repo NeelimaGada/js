@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btnColor{
+            padding: 0.25rem 0.5rem;
+            border: 3px solid #fefefe;
+            border-radius: 7px;
+            color: #fefefe;
+            background: rgba(0,0,0,0.6);
+            font-size: 0.85rem;
+            text-transform:  capitalize;
+            cursor: pointer;
+            outline: none;
+        }
+        .btnColor:hover{
+            background: rgb(0,0,0);
+        }
+    </style>
+   </head>
+<body>
+    <button type="button" class="btnColor" > Press here to change the color</button>
+</body>
+<script>
+    const btnColor=document.querySelector('.btnColor');
+    const bodyBcg=document.querySelector('body')
+    const colors=['yellow','red','green','#3b5998'];
+    btnColor.addEventListener('click',changeColor);
+     function changeColor(){
+        let random=Math.floor(Math.random()* colors.length)
+        bodyBcg.style.backgroundColor=colors[random];
+    }
+</script>
+</html>

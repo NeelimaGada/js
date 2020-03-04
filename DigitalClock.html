@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+    body{
+            min-height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            
+        }
+        #clock{
+            font-family:'Orbitron', sans-serif; 
+            font-size: 5rem;
+            color:#32cd32;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+</body>
+<script>
+    function showTime() {
+        let date=new Date();
+        let hours=date.getHours();
+        let minutes=date.getMinutes();
+        let seconds=date.getSeconds();
+        let formatHours= convertFormat(hours);
+        hours=checkTIme(hours)
+        hours=addZero(hours)
+        minutes=addZero(minutes)
+        seconds=addZero(seconds)
+document.getElementById('clock').innerHTML=`${hours} : ${minutes} : ${seconds} ${formatHours}`
+    }
+    function convertFormat(time){
+        let format="AM"
+        if(time >=12){
+format ="PM"
+        }
+return format;
+    }
+    function checkTIme(time) {
+        if(time>12){
+            time= time-12;
+        }
+        if(time===0){
+            time=12;
+        }
+        return time
+    }
+    function addZero(time){
+        if(time<10) {
+            time="0" + time;
+        }
+return time
+    }
+    showTime()
+    setInterval(showTime,1000) 
+
+    
+</script>
+</html>

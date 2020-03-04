@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container-fluid my-3">
+    <p id="demo1"></p><br>
+    <p id="demo2"></p><br>
+    <p id="demo3"></p><br>
+    <p id="demo4"></p><br>
+  </div>
+  <div class="container ml-5 col-sm-6">
+    <form>
+      <label class="form-group">Paragraph No</label>
+      <input type="text" id="color" class="form-control"><br><br>
+      <label class="form-group">Range</label>
+      <input type="text" id="index" class="form-control"><br><br>
+      <label class="form-group">Text</label>
+      <input type="text" id="text" class="form-control"><br><br>
+      <button type="button" class="btn btn-primary" onclick="add()">Insert</button>
+      <button type="button" class="btn btn-success" onclick="sendJSON()">Save</button>
+    </form>
+  </div>
+</body>
+<script>
+  var result;
+  var id;
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "http://localhost:3000/posts", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+      var responseData = xhr.responseText;
+      var JsonData = JSON.parse(responseData);
+      console.log(JsonData)
+      //  for(let i=0;i<responseData.length;i++){
+      //     var objNewDiv = document.createElement('div');
+      //     objNewDiv.setAttribute('id', 'div_' + i);
+      //     objNewDiv.innerHTML = '<p id="tb_' + i + '" name="tb_' + i + '"/>'+ JsonData[i].text+'</p>';
+      //     document.getElementById('demo').appendChild(objNewDiv);
+      // }
+
+      document.getElementById("demo1").innerHTML = JsonData[0].text
+      document.getElementById("demo2").innerHTML = JsonData[1].text
+      document.getElementById("demo3").innerHTML = JsonData[2].text
+      document.getElementById("demo4").innerHTML = JsonData[3].text
+    }
+  }
+  function add() {
+
+    if (document.getElementById("color").value == 1) {
+      var a = document.getElementById("demo1").innerHTML;
+      var b = document.getElementById("text").value;
+      var position = document.getElementById("index").value;
+
+      var output = [a.slice(0, position), b, a.slice(position)].join(' ');
+      document.getElementById("demo1").innerHTML = output;
+      result = output
+      id = document.getElementById("color").value
+      return true;
+
+    } else if (document.getElementById("color").value == 2) {
+      var a = document.getElementById("demo2").innerHTML;
+      var b = document.getElementById("text").value;
+      var position = document.getElementById("index").value;
+      var output = [a.slice(0, position), b, a.slice(position)].join(' ');
+      document.getElementById("demo2").innerHTML = output;
+      result = output
+      id = document.getElementById("color").value
+      return true;
+
+    } else if (document.getElementById("color").value == 3) {
+      var a = document.getElementById("demo3").innerHTML;
+      var b = document.getElementById("text").value;
+      var position = document.getElementById("index").value;
+      var output = [a.slice(0, position), b, a.slice(position)].join(' ');
+      document.getElementById("demo3").innerHTML = output;
+      result = output
+      id = document.getElementById("color").value
+      return true;
+    } else if (document.getElementById("color").value == 4) {
+      var a = document.getElementById("demo4").innerHTML;
+      var b = document.getElementById("text").value;
+      var position = document.getElementById("index").value;
+      var output = [a.slice(0, position), b, a.slice(position)].join(' ');
+      document.getElementById("demo4").innerHTML = output;
+      result = output
+      id = document.getElementById("color").value
+      return true
+
+    } else {
+      return false;
+    }
+
+  }
+  xhr.send();
+
+  function sendJSON() {
+    var c = result;
+    var currentId = id;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      var x = document.getElementById("demo1").innerHTML
+      var y = document.getElementById("demo2").innerHTML
+      var y = document.getElementById("demo3").innerHTML
+      var y = document.getElementById("demo4").innerHTML
+      console.log("BH", c)
+    };
+    xhttp.open("PUT", "http://localhost:3000/posts/" + currentId);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send('text=' + c, currentId);
+  }
+</script>
+</html>

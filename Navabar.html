@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+      <title>Document</title>
+
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    .navbar_header{
+        background: #545454;
+        display:flex;
+        justify-content:space-between ;
+        padding: 0.5rem 1rem;
+        border-bottom: 0.3rem solid #6baa75;
+
+    }
+    .navbar_btn{
+        align-self: center;
+        border:5px soild #6baa75;
+        cursor: pointer;
+    }
+    .bar1,.bar2,.bar3{
+        width:30px;
+        height: 5px;
+        margin:0.5rem;
+        background:#6baa75 ;
+        transition: all 2s ease;
+    }
+    .navbar_links{
+        list-style-type:none;
+        transition: all 2s ease;
+        /* */
+        height: 0;
+        overflow: hidden;
+
+    }
+    .navbar_collapse{
+        height: 240px;
+    }
+    .navbar_single-link{
+        display: block;
+        background:#69747c;
+        padding: 1rem;
+        font-size: 1.5rem;
+        text-decoration: none;
+        text-transform: capitalize;
+        color:#6baa75 ;
+        transition: all 1s ease;
+        cursor: pointer;
+    }
+    .navbar_single-link:hover{
+        padding-left: 1.5rem;
+        background: #545454;
+    }
+</style>
+<body>
+   <nav class="navbar">
+<div class="navbar_header">
+    <img src="C:\Users\dvinay\Desktop\javascript\Javascript Project\assests\4.png" height="50" width="50" class="navbar_logo" alt="">
+    <div class="navbar_btn">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+    </div>
+
+
+</div>
+<ul class="navbar_links">
+    <li><a href="#" class="navbar_single-link"><i class="fa fa-home">HOME</i></a></li>
+</ul>
+<ul class="navbar_links">
+    <li><a href="#" class="navbar_single-link"><i class="fa fa-html5">HTML</i></a></li>
+</ul>
+<ul class="navbar_links">
+    <li><a href="#" class="navbar_single-link"><i class="fa fa-css3">CSS</i></a></li>
+</ul>
+
+   </nav>
+   <header></header>
+</body>
+<script>
+    const navbarBtn=document.querySelector('.navbar_btn')
+    const navbarLinks=document.querySelector('.navbar_links')
+    navbarBtn.addEventListener('click',function() {
+        let value=navbarLinks.classList.contains('navbar_collapse')
+        if(value){
+navbarLinks.classList.remove('navbar-collapse');
+        }
+        else {
+            navbarLinks.classList.add('navbar-collapse');
+
+        }
+    })
+    
+</script>
+</html>
